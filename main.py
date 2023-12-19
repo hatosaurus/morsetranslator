@@ -25,10 +25,11 @@ def to_morse():
     for char in to_translate:
         if char in code_dict:
             morse = code_dict[char] + " "
-            print(f"The morse value of {char} is {code_dict[char]}")
+            # print(f"The morse value of {char} is {code_dict[char]}")
             translated.append(morse)
         else:
-            print(f"The character {char} is not here.")
+            pass
+            # print(f"The character {char} is not here.")
     output = ''.join(translated)
     print(output)
 
@@ -40,22 +41,22 @@ def from_morse():
     for char in to_translate:
         if char == "/":
             space = " "
-            print(f"Word break detected with {char}.")
+            # print(f"Word break detected with {char}.")
             translated.append(space)
         elif char != " ":
-            print(f"The character {char} has been added to hold.")
+            # print(f"The character {char} has been added to hold.")
             hold += char
         else:
             if hold:
                 text = dict_reversed.get(hold, "")
                 translated.append(text)
-                print(f"A space was detected. {text} has been added to output. Hold is cleared.")
+                # print(f"A space was detected. {text} has been added to output. Hold is cleared.")
                 hold = ""
 
     if hold:
         text = dict_reversed.get(hold, "")
         translated.append(text)
-        print(f"The last word was detected. {text} has been added to output. Hold is cleared.")
+        # print(f"The last word was detected. {text} has been added to output. Hold is cleared.")
 
     output = ''.join(translated)
     print(output)
